@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Ticket {
-    private UUID id;
+    private final UUID id;
     private final LocalDateTime checkIn;
     private LocalDateTime checkOut;
 
@@ -14,8 +14,13 @@ public class Ticket {
     private final Vehicle vehicle;
 
     public Ticket(Vehicle vehicle){
+        id = UUID.randomUUID();
         this.vehicle = vehicle;
         checkIn = LocalDateTime.now();
+    }
+
+    public String getId() {
+        return id.toString();
     }
 
     public void setCheckOut(){

@@ -44,6 +44,21 @@ public class ParkLot {
     }
 
 
+    public Integer findAvailableSpot(VehicleType vType, ParkingType pType){
+        for(ParkingSpot spot: parks){
+            if(spot.getParkingType().equals(pType.name()) &&
+                    spot.getVehicle().getVehicleType().equals(vType.name())){
+                if(spot.isParkIsAvailable()){
+                    return spot.getSpotNumber();
+
+                }
+                throw new IllegalStateException("ParkingSpot with spotNumber: " + spot.getSpotNumber() + "is occupied");
+            }
+        }
+        throw new IllegalStateException("No Available Spot with the given requirements");
+    }
+
+
 
 
 }

@@ -19,8 +19,8 @@ public class Vehicle {
         return registrationNumber;
     }
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
+    public String getVehicleType() {
+        return vehicleType.name().toLowerCase();
     }
 
     public void setRegistrationNumber(String registrationNumber) {

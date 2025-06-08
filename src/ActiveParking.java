@@ -2,12 +2,23 @@ import java.util.Optional;
 
 public class ActiveParking {
 
-    private final ParkLot parklot;
+
+    private ParkLot parklot;
     private static final int maxHours = 4;
 
     public ActiveParking(ParkLot lot){
         this.parklot = lot;
     }
+
+
+    public void setParkLot(ParkLot lot){
+        parklot = lot;
+    }
+
+    public ParkLot getParklot() {
+        return parklot;
+    }
+
 
     public boolean parkVehicle(Vehicle vehicle){
         for(ParkingSpot parkSpot : parklot.getParkSpots()){
@@ -19,7 +30,7 @@ public class ActiveParking {
         return false;
     }
 
-    public Vehicle ExitParking(String registrationNumber){
+    public Vehicle unParkVehicle(String registrationNumber){
         for(ParkingSpot parkingSpot: parklot.getParkSpots()){
 
             if(!parkingSpot.isParkIsAvailable() && parkingSpot.getVehicle().getRegistrationNumber().equals(registrationNumber)){

@@ -4,13 +4,10 @@ import java.time.LocalDateTime;
 public class ParkingSpot {
 
     private  int spotNumber;
-    private LocalDateTime checkIn;
-    private LocalDateTime checkOut;
-
-
     private Vehicle vehicle;
     private boolean parkIsAvailable = false;
     private ParkingType parkingType;
+
 
     public ParkingSpot(int spotNumber){
         this(spotNumber,true, ParkingType.NORMAL);
@@ -22,14 +19,14 @@ public class ParkingSpot {
         this.parkingType = type;
     }
 
-
-    public LocalDateTime getCheckOut() {
-        return checkOut;
+    public String getParkingType(){
+        return parkingType.name().toLowerCase();
     }
 
-    public void setCheckOut(LocalDateTime checkOut) {
-        this.checkOut = checkOut;
+    public void setParkingType(ParkingType type){
+        parkingType = type;
     }
+
 
     public int getSpotNumber() {
         return spotNumber;
@@ -39,13 +36,6 @@ public class ParkingSpot {
         this.spotNumber = spotNumber;
     }
 
-    public LocalDateTime getCheckIn() {
-        return checkIn;
-    }
-
-    public void setCheckIn(LocalDateTime checkIn) {
-        this.checkIn = checkIn;
-    }
 
     public Vehicle getVehicle() {
         return vehicle;

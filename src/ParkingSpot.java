@@ -6,18 +6,18 @@ public class ParkingSpot {
     private  int spotNumber;
     private LocalDateTime checkIn;
     private LocalDateTime checkOut;
-    private BigDecimal totalIncome;
+
+
     private Vehicle vehicle;
     private boolean parkIsAvailable = false;
-    final ParkingType parkingType;
+    private ParkingType parkingType;
 
-    public ParkingSpot(int spotNumber, BigDecimal totalIncome, boolean parkIsAvailable){
-        this(spotNumber,totalIncome,parkIsAvailable,ParkingType.NORMAL);
+    public ParkingSpot(int spotNumber){
+        this(spotNumber,true, ParkingType.NORMAL);
     }
 
-    public ParkingSpot(int spotNumber,BigDecimal totalIncome, boolean parkStatus, ParkingType type ) {
+    public ParkingSpot(int spotNumber, boolean parkStatus, ParkingType type ) {
         this.spotNumber = spotNumber;
-        this.totalIncome = totalIncome;
         this.parkIsAvailable  = parkStatus;
         this.parkingType = type;
     }
@@ -47,13 +47,12 @@ public class ParkingSpot {
         this.checkIn = checkIn;
     }
 
-    public BigDecimal getTotalIncome() {
-        return totalIncome;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setTotalIncome(BigDecimal totalIncome) {
-        this.totalIncome = totalIncome;
-    }
+
+
 
     public boolean isParkIsAvailable() {
         return parkIsAvailable = vehicle == null;
@@ -61,6 +60,10 @@ public class ParkingSpot {
 
     public void setParkUnAvailable(Vehicle parkedVehicle) {
         vehicle = parkedVehicle;
+    }
+
+    public void ExitVehicle(){
+        vehicle = null;
     }
 
 

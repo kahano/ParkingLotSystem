@@ -8,4 +8,7 @@
 # Running console
 <img width="604" alt="image" src="https://github.com/user-attachments/assets/6761143d-d620-45f6-9de5-a532c6f4b915" />
 
+<img width="584" alt="image" src="https://github.com/user-attachments/assets/0bfe1128-63c3-44d7-a3a1-dba1dc243a8c" />
+
+
 

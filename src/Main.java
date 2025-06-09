@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ParkLot parkLot = new ParkLot(80,"Helsfyr parking",25);
+        ParkLot parkLot = new ParkLot(80,"Helsfyr parking",5);
         List<ParkingSpot> spots;
         ActiveParking activeParking = new ActiveParking(parkLot);
         Generate_Active_Tickets activeTickets = new Generate_Active_Tickets(activeParking);

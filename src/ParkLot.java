@@ -15,7 +15,7 @@ public class ParkLot {
         this.name = name;
         this.totalParkingSpots = spots;
         parks = new ArrayList<>(spots);
-        for(int i = 0; i < spots;i++) {
+        for(int i = 1; i < spots+1;i++) {
 
             ParkingType type = ParkingType.NORMAL;
             if (i % 10 == 0) {
@@ -56,8 +56,7 @@ public class ParkLot {
         for(ParkingSpot spot: parks) {
             if(spot.getParkingType().equalsIgnoreCase(pType.name()) &&
                     spot.isParkAvailable()) {
-                // For simplicity, assume any vehicle type can park in any spot
-                // If you need vehicle type restrictions, add them here
+
                 return spot.getSpotNumber();
             }
         }

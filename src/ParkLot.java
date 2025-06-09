@@ -1,19 +1,31 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class ParkLot {
 
 
-
-
     private double hourPrice;
     private String name;
-    private List<ParkingSpot> parks;
-    private int totalParkingSpots;
+    private final List<ParkingSpot> parks;
+    public int totalParkingSpots;
 
-    public ParkLot(double hourPrice, String name) {
+    public ParkLot(double hourPrice, String name, int spots) {
         this.hourPrice = hourPrice;
         this.name = name;
+        this.totalParkingSpots = spots;
+        parks = new ArrayList<>(spots);
+        for(int i = 0; i < spots;i++) {
+
+            ParkingType type = ParkingType.NORMAL;
+            if (i % 10 == 0) {
+                type = ParkingType.HANDICAP;
+            } else if (i % 5 == 0) {
+                type = ParkingType.EV;
+            }
+            parks.add(new ParkingSpot(i, true, type));
+        }
+
     }
 
     public String getName() {
@@ -32,12 +44,7 @@ public class ParkLot {
         this.hourPrice = price;
     }
 
-    public void addParkingSpot(ParkingSpot parkingSpot){
-        for(int i = 0; i < totalParkingSpots;i++){
-            parkingSpot.setSpotNumber(i);
-            parks.add(parkingSpot);
-        }
-    }
+
 
     public List<ParkingSpot> getParkSpots(){
         return parks;
@@ -45,18 +52,19 @@ public class ParkLot {
 
 
     public Integer findAvailableSpot(VehicleType vType, ParkingType pType){
-        for(ParkingSpot spot: parks){
-            if(spot.getParkingType().equals(pType.name()) &&
-                    spot.getVehicle().getVehicleType().equals(vType.name())){
-                if(spot.isParkIsAvailable()){
-                    return spot.getSpotNumber();
 
-                }
-                throw new IllegalStateException("ParkingSpot with spotNumber: " + spot.getSpotNumber() + "is occupied");
+        for(ParkingSpot spot: parks) {
+            if(spot.getParkingType().equalsIgnoreCase(pType.name()) &&
+                    spot.isParkAvailable()) {
+                // For simplicity, assume any vehicle type can park in any spot
+                // If you need vehicle type restrictions, add them here
+                return spot.getSpotNumber();
             }
         }
-        throw new IllegalStateException("No Available Spot with the given requirements");
+        throw new IllegalStateException("No Available " + pType + " spots for " + vType);
     }
+
+
 
 
 

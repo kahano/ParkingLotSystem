@@ -5,7 +5,7 @@ public class ParkingSpot {
 
     private  int spotNumber;
     private Vehicle vehicle;
-    private boolean parkIsAvailable = false;
+    private boolean parkIsAvailable = true;
     private ParkingType parkingType;
 
 
@@ -44,16 +44,24 @@ public class ParkingSpot {
 
 
 
-    public boolean isParkIsAvailable() {
-        return parkIsAvailable = vehicle == null;
+    public boolean isParkAvailable() {
+        return vehicle == null;
     }
+
 
     public void setParkUnAvailable(Vehicle parkedVehicle) {
-        vehicle = parkedVehicle;
+
+        if (parkedVehicle == null) {
+            throw new IllegalArgumentException("Vehicle cannot be null");
+        }
+        if (!isParkAvailable()) {
+            throw new IllegalStateException("Spot is already occupied");
+        }
+        this.vehicle = parkedVehicle;
     }
 
-    public void ExitVehicle(){
-        vehicle = null;
+    public void exitVehicle(){
+        this.vehicle = null;
     }
 
 

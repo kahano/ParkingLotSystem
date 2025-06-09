@@ -1,8 +1,11 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Ticket {
+
+
     private final UUID id;
     private final LocalDateTime checkIn;
     private LocalDateTime checkOut;
@@ -19,6 +22,18 @@ public class Ticket {
         checkIn = LocalDateTime.now();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(id, ticket.id) && Objects.equals(checkIn, ticket.checkIn) && Objects.equals(checkOut, ticket.checkOut) && Objects.equals(price, ticket.price) && Objects.equals(vehicle, ticket.vehicle);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, checkIn, checkOut, price, vehicle);
+    }
+
     public String getId() {
         return id.toString();
     }
@@ -27,10 +42,19 @@ public class Ticket {
         checkOut = LocalDateTime.now();
     }
 
+    public double getTotalHours(){
+        Duration duration = Duration.between(checkIn,checkOut);
+        return  duration.toHours();
+
+    }
+
     public void calculateParkingPrice(Double pricePerHour){
         Duration duration = Duration.between(checkIn,checkOut);
         double totalHours = duration.toHours();
-         price = totalHours*pricePerHour;
+        if(totalHours < 1){
+            price = 1*pricePerHour;
+        }
+
     }
 
     public Double getPrice() {
@@ -45,8 +69,9 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" +
-                "vehicle plate=" + vehicle.getRegistrationNumber() +
-                ", checkIn=" + checkIn +
+                "Ticket ID= " + this.getId() +
+                "vehicle plate= " + vehicle.getRegistrationNumber() +
+                ", checkIn= " + checkIn +
                 '}';
     }
 

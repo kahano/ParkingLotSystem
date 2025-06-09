@@ -12,23 +12,6 @@ public class Main {
         ActiveParking activeParking = new ActiveParking(parkLot);
         Generate_Active_Tickets activeTickets = new Generate_Active_Tickets(activeParking);
 
-
-//        for(int i = 0; i < parkLot.totalParkingSpots;i++){
-//
-//            if (parkLot.getParkSpots().get(i) == null) {
-//                ParkingType type = ParkingType.NORMAL;
-//                if (i % 10 == 0) {
-//                    type = ParkingType.HANDICAP;
-//                } else if (i % 5 == 0) {
-//                    type = ParkingType.EV;
-//                }
-//
-//                parkLot.getParkSpots().add(new ParkingSpot(i, true, type));
-//            } else {
-//                System.out.println("Spot " + i + " is occupied");
-//            }
-        //}
-
         spots = parkLot.getParkSpots();
         activeTickets.parkingMenu();
         System.out.println("\n ");

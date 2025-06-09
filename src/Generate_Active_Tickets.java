@@ -110,6 +110,7 @@ public class Generate_Active_Tickets {
             System.out.println("No active tickets available.");
         } else {
             tickets.forEach(System.out::println);
+            System.out.println("Total available ParkingSpots: " + park.getTotalAvailableParkingSpots());
         }
     }
 

@@ -42,8 +42,13 @@ public class Ticket {
         checkOut = LocalDateTime.now();
     }
 
+    public LocalDateTime getCheckOut(){
+        return this.checkOut;
+    }
+
     public double getTotalHours(){
         Duration duration = Duration.between(checkIn,checkOut);
+        System.out.println("checkOut: " + checkOut);
         return  duration.toHours();
 
     }
@@ -70,7 +75,7 @@ public class Ticket {
     public String toString() {
         return "Ticket{" +
                 "Ticket ID= " + this.getId() +
-                "vehicle plate= " + vehicle.getRegistrationNumber() +
+                ", vehicle plate= " + vehicle.getRegistrationNumber() +
                 ", checkIn= " + checkIn +
                 '}';
     }

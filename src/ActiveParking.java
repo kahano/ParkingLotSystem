@@ -4,11 +4,13 @@ public class ActiveParking {
 
 
     private ParkLot parklot;
-    public static final int maxHours = 4;
+    private int maxHours = 4;
 
 
-    public ActiveParking(ParkLot lot){
+    public ActiveParking(ParkLot lot, int maxHours){
+
         this.parklot = lot;
+        this.maxHours = maxHours;
     }
 
 
@@ -20,14 +22,18 @@ public class ActiveParking {
         return parklot;
     }
 
+    public int getMaxHours(){
+        return this.maxHours;
+    }
+
 
     public boolean parkVehicle(Vehicle vehicle, int spotNumber){
+
         Optional<ParkingSpot> spotOpt = getParkingSpotBySpotNumber(spotNumber);
         if (spotOpt.isPresent()) {
             ParkingSpot spot = spotOpt.get();
             if (spot.isParkAvailable()) {
                 spot.setParkUnAvailable(vehicle);
-                parklot.totalParkingSpots--;
                 return true;
             }
         }
@@ -40,7 +46,6 @@ public class ActiveParking {
             if(!parkingSpot.isParkAvailable() && parkingSpot.getVehicle().getRegistrationNumber().equals(registrationNumber)){
                 Vehicle parkedVehicle = parkingSpot.getVehicle();
                 parkingSpot.exitVehicle();
-                parklot.totalParkingSpots++;
                 return parkedVehicle;
             }
         }

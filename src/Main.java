@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         ParkLot parkLot = new ParkLot(80,"Helsfyr parking",5);
-        ActiveParking activeParking = new ActiveParking(parkLot);
+        ActiveParking activeParking = new ActiveParking(parkLot,4);
         Generate_Active_Tickets activeTickets = new Generate_Active_Tickets(activeParking);
         activeTickets.parkingMenu();
         System.out.println("\n ");

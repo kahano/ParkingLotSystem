@@ -91,13 +91,11 @@ public class Generate_Active_Tickets {
                 try {
                     Vehicle parkedVehicle = park.unParkVehicle(plate);
                     ticket.setCheckOut();
-                    System.out.println("\n" + ticket.toString()+"\n" + "checkOut=" + ticket.getCheckOut()+"\n");
+                 System.out.println("\n" + ticket.toString()+"\n");
                     System.out.println("Exit parking\n");
-
-                    ticket.setCheckOut();
                     double price = park.getParklot().getHourPrice();
 
-                    if (ticket.getTotalHours() > ActiveParking.maxHours) {
+                    if (ticket.getTotalHours() > park.getMaxHours()) {
                         price += 1000; // adding a fine for violation
                         System.out.println("Exceeded maximum parking time! Additional fine applied.");
                     }

@@ -8,12 +8,10 @@ public class ParkLot {
     private double hourPrice;
     private String name;
     private final List<ParkingSpot> parks;
-    public int totalParkingSpots;
 
     public ParkLot(double hourPrice, String name, int spots) {
         this.hourPrice = hourPrice;
         this.name = name;
-        this.totalParkingSpots = spots;
         parks = new ArrayList<>(spots);
         for(int i = 1; i < spots+1;i++) {
 
@@ -27,6 +25,8 @@ public class ParkLot {
         }
 
     }
+
+
 
     public String getName() {
         return name;

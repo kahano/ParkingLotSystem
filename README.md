@@ -9,8 +9,8 @@ We have three parkingtypes :
 
 Admin can:
 
-- See all Active tickets that are available
-- See updated available parking spots after a released car
+- See all active tickets that are available.
+- See updated available parking spots after a released car.
 - See a vehcile that have parked. 
 
 

@@ -1,5 +1,5 @@
 # 🚗 Parking Lot System
- # "." An App where en Admin kan choose and allocate a parking spot in a parking area based on the driver's parkingtype preference!
+  "." An App where en Admin kan choose and allocate a parking spot in a parking area based on the driver's parkingtype preference!
 
 We have three parkingtypes :
 

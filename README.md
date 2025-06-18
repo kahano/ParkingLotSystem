@@ -1,5 +1,5 @@
 # 🚗 Parking Lot System
-  "." An App where en Admin kan choose and allocate a parking spot in a parking area based on the driver's parkingtype preference!
+  * An App where en Admin kan choose and allocate a parking spot in a parking area based on the driver's parkingtype preference!
 
 We have three parkingtypes :
 
@@ -9,10 +9,10 @@ We have three parkingtypes :
 
 Admin can:
 
-See all Active tickets that are available
-Bytte preferansen
-Velge en reise (og få et sete)
-Når bruker velger et fly, så velger systemet riktig "allokerer" - en maskin som velger ut et sete basert på brukers preferanse. Hvis bruker har preferanse av "Business", så velger den riktige "allokerer" som finner det første setet som er tilgjengelig av "Business"-setene på flyet!
+- See all Active tickets that are available
+- See updated available parking spots after a released car
+- See a vehcile that have parked. 
+
 
 # Domain model datastructure
   - The use case diagram resembles this diagram

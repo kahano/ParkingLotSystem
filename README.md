@@ -3,9 +3,9 @@
 
 We have three parkingtypes :
 
-"NORMAL"
-"HANDICAP"
-"EV"
+  * "NORMAL"
+  * "HANDICAP"
+  * "EV"
 
 Admin can:
 
